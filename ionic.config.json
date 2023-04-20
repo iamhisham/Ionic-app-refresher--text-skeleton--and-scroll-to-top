@@ -1,0 +1,7 @@
+{
+  "name": "hideheader-scroll",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

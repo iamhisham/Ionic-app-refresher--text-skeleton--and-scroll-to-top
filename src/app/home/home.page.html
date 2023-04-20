@@ -1,0 +1,31 @@
+<ion-header #header [translucent]="true" class="ion-no-border">
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-button shape="round">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>title</ion-title>
+    <ion-buttons slot="end">
+      <ion-button shape="round">
+        <ion-icon slot="icon-only" name="share"></ion-icon>
+      </ion-button>
+      <ion-button shape="round">
+        <ion-icon slot="icon-only" name="heart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="false" scrollEvents="true" (ionScroll)='onContentScroll($event)'>
+  <ion-header #subcontent class="ion-border">
+    <ion-toolbar>
+      <ion-title>welcome</ion-title>
+
+    </ion-toolbar>
+  </ion-header>
+  <ion-list>
+    <ion-item detail="true" *ngFor="let show of details">
+      <ion-label>{{show}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

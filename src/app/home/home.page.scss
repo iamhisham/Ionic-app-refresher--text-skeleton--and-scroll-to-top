@@ -1,0 +1,24 @@
+//for scroll css startws
+.subcontent-was-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.header-was-sticky {
+  top: -76px;
+}
+
+.header-not-sticky {
+  top: 0;
+}
+
+.animated-delay {
+  transition: 1000ms;
+}
+
+//css
+.custom-toolbar {
+  --padding-top: 16px;
+}
