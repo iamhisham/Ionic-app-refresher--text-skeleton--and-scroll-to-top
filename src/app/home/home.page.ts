@@ -13,8 +13,9 @@ import { IonicModule } from '@ionic/angular';
 export class HomePage implements OnInit {
   @ViewChild("header") header: HTMLElement;
   @ViewChild("subcontent") subcontent: HTMLElement;
+  @ViewChild("subcontent") refresh: HTMLElement;
 
-
+  loaded: any = false;
   details = ['mohamed', 'jack', 'joe doe', 'mohamed', 'jack', 'joe doe', 'mohamed', 'jack', 'joe doe', 'mohamed', 'jack', 'joe doe', 'mohamed', 'jack', 'joe doe', 'mohamed', 'jack', 'joe doe', 'mohamed', 'jack', 'joe doe', 'mohamed', 'jack', 'joe doe', 'mohamed', 'jack', 'joe doe', 'mohamed', 'jack', 'joe doe', 'mohamed', 'jack', 'joe doe', 'mohamed', 'jack', 'joe doe'];
 
   constructor(public element: ElementRef,
@@ -26,6 +27,8 @@ export class HomePage implements OnInit {
   ionViewWillEnter() {
     this.renderer.addClass(this.header['el'], 'animated-delay');
     this.renderer.addClass(this.subcontent['el'], 'animated-delay');
+
+    this.isLoaded();
   }
 
   onContentScroll(event: any) {
@@ -41,9 +44,22 @@ export class HomePage implements OnInit {
       this.renderer.removeStyle(this.subcontent['el'], 'position');
       this.renderer.removeStyle(this.subcontent['el'], 'top');
     }
-
-
-
   }
+
+
+  isLoaded() {
+    setTimeout(() => {
+      this.loaded = true;
+    }, 2000)
+  }
+
+  handleRefresh(event?: any) {
+    this.loaded = false;
+    setTimeout(() => {
+      // Any calls to load data go here
+      event.target.complete();
+      this.loaded = true;
+    }, 2000);
+  };
 
 }

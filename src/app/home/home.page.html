@@ -11,7 +11,7 @@
       </ion-label>
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button shape="round">
+      <ion-button shape="round" (click)="handleRefresh()">
         <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
       </ion-button>
       <ion-button shape="round">
@@ -24,12 +24,16 @@
   </ion-toolbar>
 </ion-header>
 <ion-content fullscreen="false" scrollEvents="true" (ionScroll)='onContentScroll($event)'>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+      refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>
+  </ion-refresher>
   <ion-header #subcontent class="ion-border">
     <ion-toolbar>
       <ion-title class="notification-title">Today notifications</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-list>
+  <ion-list *ngIf="loaded">
     <ion-item detail="true" *ngFor="let show of details">
       <ion-thumbnail slot="start">
         <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
@@ -41,4 +45,19 @@
       </ion-label>
     </ion-item>
   </ion-list>
+
+  <ion-list *ngIf="!loaded">
+    <ion-item detail="true" *ngFor="let show of details">
+      <ion-thumbnail slot="start">
+        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <h3><ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text></h3>
+        <p><ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text></p>
+        <p><ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
 </ion-content>
