@@ -48,3 +48,26 @@ ion-title {
 h1 {
   margin: 0px;
 }
+
+
+ion-fab-button::part(native) {
+  background-color: #fec564;
+  background-color: transparent(50);
+  --background-activated-opacity: 12;
+  --background-focused-opacity: 33.24 // opacity: 4;
+    // border-radius: 15px;
+    // box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, .3), 0px 1px 3px 1px rgba(0, 0, 0, .15);
+    // color: rgb(255, 255, 255);
+    // height: 45px;
+    // width: 45px;
+    // margin-right: -10px;
+    // margin-bottom: -10px;
+}
+
+ion-fab-button::part(native):hover::after {
+  background-color: rgba(128, 128, 128, 0.463);
+}
+
+ion-fab-button::part(native):active::after {
+  background-color: rgba(128, 128, 128, 0.463);
+}
