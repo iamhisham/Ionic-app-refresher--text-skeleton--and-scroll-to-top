@@ -1,5 +1,7 @@
 Title : Ionic-app-refresher--text-skeleton--and-scroll-to-top.
 
+step: npm install
+
 //Preview for android and ios
 ![image](https://user-images.githubusercontent.com/88367841/233619342-c40595a2-6fa4-49b3-a48e-bf4de0e927f4.png)
 
